@@ -2,29 +2,30 @@
 .navigation
     nav
         NuxtLink(
-            to="/"
+            to="../films/"
             :class="{active: props.namePage === 'films'}") Фильмы
         NuxtLink(
-            to="series"
+            to="../series/"
             :class="{active: props.namePage === 'series'}") Сериалы
         NuxtLink(
-            to="animation"
+            to="../animations/"
             :class="{active: props.namePage === 'animations'}") Анимация
 
 .content
     .cards(v-if="props.cards")
-        .card(v-for="card in props.cards")
-            img(:src="props.namePage + '/' + card + '.png'")
+        Card(v-for="card in props.cards"
+            :namePage='props.namePage'
+            :cardName='card')
 </template>
 
 <script lang='ts' setup>
 type NamePage = "films" | "series" | "animations"
-interface Page {
+interface PageConstructor {
     namePage: NamePage
     cards: string[]
 }
 
-const props = defineProps<Page>()
+const props = defineProps<PageConstructor>()
 </script>
 
 <style lang='sass' scoped>
@@ -49,11 +50,4 @@ const props = defineProps<Page>()
     .cards
         +flex($wrap: wrap, $gap: 23)
         width: 1095px
-
-        .card
-            border-radius: 5px
-
-            img
-                width: 200px
-                height: 300px
 </style>
