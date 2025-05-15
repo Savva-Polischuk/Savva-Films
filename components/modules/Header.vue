@@ -34,8 +34,11 @@ const handleSearch = () => {
     border-color: #800000
     padding: 0 94px
 
+    @media (max-width: 426px)
+        padding: 0 10px
+
     .logo
-        width: 55px
+        width: 2.75rem
         aspect-ratio: 1
 
     .nav
@@ -47,7 +50,7 @@ const handleSearch = () => {
 
         .search
             +flex(row, center, center)
-            width: 283px
+            width: 14.15rem
             background-color: #fff
             padding: 6px 7px
             border-radius: 3px
@@ -55,7 +58,7 @@ const handleSearch = () => {
             input
                 border: none
                 background-color: transparent
-                font-size: 20px
+                font-size: 1rem
                 outline: none
                 padding: 0
 

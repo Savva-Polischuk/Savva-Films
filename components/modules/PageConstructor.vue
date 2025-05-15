@@ -34,6 +34,10 @@ const props = defineProps<PageConstructor>()
     height: 87px
     padding: 0 94px
 
+    @media (max-width: 426px)
+        justify-content: center
+        padding: 0 12px
+
     nav
         +flex($gap: 30)
 
@@ -48,6 +52,6 @@ const props = defineProps<PageConstructor>()
     +flex($align-items: center, $justify-content: center)
 
     .cards
-        +flex($wrap: wrap, $gap: 23)
-        width: 1095px
+        +flex($justify-content: center, $wrap: wrap, $gap: 23)
+        width: fit-content
 </style>
